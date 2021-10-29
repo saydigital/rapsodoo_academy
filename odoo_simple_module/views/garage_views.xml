@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_garage_form">
+        <field name="name">view.garage.form</field>
+        <field name="model">garage.garage</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Garage form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="ceiling_height"/>
+                        <field name="date_vehicles_number_change"/>
+                    </group>
+                    <notebook>
+                        <page string="Vehicles">
+                            <field name="vehicle_ids"/>
+                        </page>
+                        <page string="Other Info">
+                            <group>
+                                <group>
+                                    <field name="vehicles_number"/>
+                                    <field name="vehicles_number_compute"/>
+                                </group>
+                                <group>
+                                    <field name="start_date"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_garage_tree">
+        <field name="name">view.garage.tree</field>
+        <field name="model">garage.garage</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Garage List">
+                <field name="name"/>
+                <field name="ceiling_height"/>
+                <field name="vehicles_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_list_garages">
+        <field name="name">Garages</field>
+        <field name="res_model">garage.garage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_vehicles_garage_main"
+        name="Garage App"
+        sequence="10"
+    />
+
+    <menuitem id="menu_vehicles_garage"
+        name="Vehicles Garage"
+        sequence="1"
+        action="action_list_garages"
+        parent="menu_vehicles_garage_main"
+    />
+
+</odoo>

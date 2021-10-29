@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_garage_garage,access_garage_garage,model_garage_garage,base.group_user,1,1,1,1
+access_vehicle_vehicle,access_vehicle_vehicle,model_vehicle_vehicle,base.group_user,1,1,1,1
