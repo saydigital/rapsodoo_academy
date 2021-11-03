@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_vehicle_form">
+        <field name="name">view.vehicle.form</field>
+        <field name="model">vehicle.vehicle</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Vehicle form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="garage_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_vehicle_tree">
+        <field name="name">view.vehicle.tree</field>
+        <field name="model">vehicle.vehicle</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Garage List">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_list_vehicles">
+        <field name="name">Vehicles</field>
+        <field name="res_model">vehicle.vehicle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem id="menu_vehicles"
+        name="Vehicles"
+        sequence="1"
+        action="action_list_vehicles"
+        parent="menu_vehicles_garage_main"
+    />
+</odoo>
