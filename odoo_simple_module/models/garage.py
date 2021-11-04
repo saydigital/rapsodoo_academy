@@ -47,6 +47,6 @@ class Garage(models.Model):
             value = len(garage.vehicle_ids)
             garage.vehicles_number_compute = value
 
-    @api.onchange('vehicles_number')
+    @api.onchange(' ')
     def onchange_vehicle_number(self):
         self.date_vehicles_number_change = fields.Date.today()
