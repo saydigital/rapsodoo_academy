@@ -11,6 +11,9 @@
                     <group>
                         <field name="name"/>
                         <field name="garage_id"/>
+                        <field name="license_plate"/>
+                        <field name="daily_fare"  readonly="1" force_save="1"/>
+                        <field name="vehicle_type"/>
                     </group>
                 </sheet>
             </form>
@@ -24,6 +27,8 @@
         <field name="arch" type="xml">
             <tree string="Garage List">
                 <field name="name"/>
+                <field name="garage_id"/>
+                <field name="license_plate"/>
             </tree>
         </field>
     </record>

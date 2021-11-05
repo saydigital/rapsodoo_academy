@@ -47,6 +47,17 @@ class Garage(models.Model):
             value = len(garage.vehicle_ids)
             garage.vehicles_number_compute = value
 
-    @api.onchange(' ')
+    @api.onchange('vehicles_number')
     def onchange_vehicle_number(self):
         self.date_vehicles_number_change = fields.Date.today()
+        
+    def write(self, values):
+        return super(Garage, self).write(values)  
+    
+    def unlink(self):
+        vehicle_ids = self.env['vehicle.vehicle'].search([('garage_id', '=', self.id)])
+        
+        for v in vehicle_ids: 
+            v.unlink(); 
+         
+        return super(Garage, self).unlink() 
