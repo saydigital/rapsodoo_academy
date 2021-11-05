@@ -50,3 +50,12 @@ class Garage(models.Model):
     @api.onchange('vehicles_number')
     def onchange_vehicle_number(self):
         self.date_vehicles_number_change = fields.Date.today()
+                
+    def unlink(self):
+        vehicle_ids = self.env['vehicle.vehicle'].search([('garage_id', '=', self.id)])
+        
+        #Scrivere codice per eliminare i veicoli associati a questo garage.
+        #Hint: usare ciclo for su vehicle_ids e metoodo unlink()
+        
+        return super(Garage, self).unlink() 
+        
